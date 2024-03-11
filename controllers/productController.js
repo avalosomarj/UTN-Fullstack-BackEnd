@@ -81,16 +81,4 @@ const putUpdateProductByIdController = async (req, res) => {
     }
 }
 
-const postUploadImgProductController = async (req, res) => {
-    const image = req.files.file
-
-    image.mv(`./public/img/${image.name}`, err => {
-        if(err){
-            return res.status(500).json({message: err, status: 500})
-        }
-
-        return res.status(200).json({message: 'Image upload successfully', status: 200})
-    })
-}
-
-module.exports = { getAllProductsController, getOneProductByIdController, postCreateProductController, deleteProductByIdController, putUpdateProductByIdController, postUploadImgProductController }
+module.exports = { getAllProductsController, getOneProductByIdController, postCreateProductController, deleteProductByIdController, putUpdateProductByIdController }
